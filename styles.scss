@@ -1,0 +1,102 @@
+
+/*****************************************************************************************************************
+                style SCSS pour la media queries du mobile avec pour point de rupture de 0 à 779px
+*****************************************************************************************************************/
+
+@media screen and (max-width: 779px) {
+
+    body {
+        @include container($max-width: 380px);
+        padding-block: 2rem;
+    }
+
+
+    header.header {
+        padding: 1rem;
+        margin: 0;
+   
+        div.container {
+            @include Flex($justify-content: center, $gap: 4rem, $align-items: center);
+            padding: 0;
+
+            a img{
+             width: 70%;
+            }
+
+            nav ul.navbar {
+                @include Flex($flexdirection:column, $align-items: flex-end);
+                padding: 0;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    main.main div.container {
+        article.FlexSlide h1 {
+            font-size: 2rem;
+        }
+
+    }
+
+    main.main article.cards div.container {
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        div.flex {
+            @include Flex($justify-content: center, $flexdirection:column, $gap: 2rem);
+
+            div.card {
+                flex-basis: 100%;
+            }
+        }
+    }
+
+    article.media div.container {
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        div.flexMedia {
+            @include Flex($justify-content: center, $flexdirection:column, $gap: 2rem);
+
+            div.text {
+                color: $color;
+
+                div.iconSocials a {
+                    @include Flex($justify-content: center, $flexdirection:column, $gap: 2rem, $align-items: center);
+
+                    &:hover {
+                        color: $color-secondaire;
+                    }
+
+                    i {
+                        font-size: 3rem;
+                        padding: 2rem;
+                    }
+                }
+            }
+        }
+
+    }
+
+   footer.footer {
+
+    article.text-footer {
+
+        padding: 2rem;
+
+        div.link-footer a {
+            display: block;
+            padding: 0.5rem;
+            text-decoration: underline;
+
+            &:hover {
+                color: $color-secondaire;
+            }
+        }
+    }
+   }
+}

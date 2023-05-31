@@ -1,0 +1,38 @@
+/*****************************************************************************************************************
+                            Déclaration des variables des fonts faces utilisables
+*****************************************************************************************************************/
+$font-style: normal;
+
+@mixin fontFaces ($fonts, $font-weight) {
+    font-family: $fonts;
+    font-style: $font-style;
+    font-weight: $font-weight;
+}
+
+/*****************************************************************************************************************
+                            Déclaration des différentes fonts faces du sites Wolf Gang
+*****************************************************************************************************************/
+@font-face {
+    @include fontFaces($fonts:"BodegaSans_Black", $font-weight:900);
+    src: url("../fonts/BodegaSans_Black.ttf") format("truetype");
+}
+
+@font-face {
+    @include fontFaces("fontawesome-webfont", 400);
+    src: url("../fonts/fontawesome-webfont.eot") format("eot");
+}
+
+@font-face {
+    @include fontFaces("fontawesome-webfont", 400);
+    src: url("../fonts/fontawesome-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    @include fontFaces("fontawesome-webfont", 400);
+    src: url("../fonts/fontawesome-webfont.woff") format("woff");
+}
+
+@font-face {
+    @include fontFaces("fontawesome-webfont", 400);
+    src: url("../fonts/fontawesome-webfont.woff2") format("woff2");
+}

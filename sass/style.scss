@@ -1,0 +1,526 @@
+/*****************************************************************************************************************
+                                           style SCSS start
+*****************************************************************************************************************/
+
+@import "_partials/font";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*****************************************************************************************************************
+                                    style SCSS déclarationdes variables
+*****************************************************************************************************************/
+
+$color: #fff;
+$color-primaire: #333333;
+$color-back: #444444;
+$color-secondaire: #ff9d00;
+$background-image: linear-gradient(-45deg, #333333 50%, #fff 50%);
+$border-radius: 0.5rem;
+$font-style: normal;
+$max-width-image: 100%;
+$padding-header: 1rem;
+$padding-link: 0;
+$transition: all 2s ease;
+
+
+/*****************************************************************************************************************
+                                                style SCSS animation
+*****************************************************************************************************************/
+
+@keyframes wolfAnimation {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/*****************************************************************************************************************
+                                        style SCSS déclarations des mixins
+*****************************************************************************************************************/
+
+@mixin animation ($name: wolfAnimation, $duration: 4s, $timing-function: ease, $direction: normal) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing-function;
+    animation-direction: $direction;
+}
+
+@mixin Flex ($justify-content:flex-start, $gap:2rem, $flexdirection:row, $flexwrap:nowrap, $align-items:flex-start) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $flexdirection;
+    flex-wrap: $flexwrap;
+    gap: $gap;
+}
+
+@mixin image {
+    max-width: $max-width-image;
+    max-height: auto;
+}
+
+@mixin container($max-width: 1500px) {
+    max-width: $max-width;
+    margin-inline: auto;
+}
+
+body {
+    font-family: "Alatsi";
+    background-image: url("../img/bg_body.svg");
+    background-color: $color-back;
+    margin: 0;
+    padding: 0;
+    @include animation;
+    transition: $transition;
+}
+
+/*****************************************************************************************************************
+                                        style SCSS pour le header
+*****************************************************************************************************************/
+
+header.header {
+    background-image: $background-image;
+    @include animation;
+    transition: $transition;
+
+    div.container {
+        @include Flex($justify-content: space-between, $align-items: center, $gap:2rem);
+        @include fontFaces($fonts: "BodegaSans_Black", $font-weight: 900);
+        @include container($max-width: 1500px);
+        padding: $padding-header;
+
+        nav ul.navbar {
+            @include Flex($flexdirection: column);
+            font-size: 2rem;
+            padding: $padding-link;
+
+            li {
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    color: $color;
+
+                    &:hover {
+                        color: $color-secondaire;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*****************************************************************************************************************
+                                        style SCSS pour le main
+*****************************************************************************************************************/
+
+main.main div.container {
+    @include container($max-width: 1500px);
+
+    article.FlexSlide h1 {
+        @include animation;
+        @include fontFaces($fonts: "BodegaSans_Black", $font-weight: 900);
+        color: $color;
+        font-size: 4rem;
+        margin-block: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+        transition: $transition;
+
+        span {
+            color: $color-secondaire;
+        }
+    }
+
+    div.flexslider {
+        border: 0.5rem solid $color;
+        @include animation;
+        transition: $transition;
+    }
+}
+
+main.main article.cards div.container {
+    @include container($max-width: 1500px);
+
+    h2 {
+        @include fontFaces($fonts: "BodegaSans_Black", $font-weight: 900);
+        @include animation;
+        border: 0.2rem solid $color-primaire;
+        color: #fff;
+        font-size: 3.5rem;
+        padding: 1rem;
+        text-transform: uppercase;
+        transition: $transition;
+
+        span {
+            color: $color-secondaire
+        }
+
+    }
+
+    div.flex {
+        @include Flex($justify-content: center, $flexdirection: row, $gap: 2rem);
+
+        div.card {
+            background-color: $color;
+            flex-basis: calc((100% / 4) - 2rem);
+            padding: 1rem;
+            @include animation;
+            transition: $transition;
+
+            img {
+                @include animation;
+                @include image;
+                transition: $transition;
+            }
+
+            section.border-bottom {
+                h3 {
+                    @include fontFaces($fonts: "BodegaSans_Black", $font-weight: 900);
+                    @include animation;
+                    color: $color-secondaire;
+                    font-size: 2.5rem;
+                    padding: 0.5rem 0;
+                    margin: 0;
+                    text-transform: uppercase;
+                    text-align: center;
+                    border-bottom: 0.2rem solid $color-secondaire;
+                    transition: $transition;
+                }
+
+                p {
+                    text-align: center;
+                }
+
+            }
+        }
+    }
+}
+
+div.card section.border-bottom div.readMore {
+    display: flex;
+    justify-content: center;
+
+    a {
+        @include fontFaces($fonts: "BodegaSans_Black", $font-weight: 900);
+        background-color: $color-secondaire;
+        border-radius: $border-radius;
+        border: 2px solid $color-secondaire;
+        color: $color;
+        display: block;
+        font-size: 1.2rem;
+        padding: 1rem;
+        text-decoration: none;
+        text-align: center;
+        width: 100%;
+        transition: all 1s;
+
+        &:hover {
+            background-color: $color;
+            color: $color-secondaire;
+        }
+    }
+}
+
+article.media div.container {
+    @include container($max-width: 1500px);
+
+    h2 {
+        @include animation;
+        @include fontFaces($fonts: "BodegaSans_Black", $font-weight: 900);
+        border: 0.2rem solid $color-primaire;
+        color: #fff;
+        font-size: 2.5rem;
+        padding: 1rem;
+        text-transform: uppercase;
+        transition: $transition;
+
+        span {
+            color: $color-secondaire
+        }
+    }
+
+    div.flexMedia {
+        @include Flex($justify-content: center, $flexdirection: row, $gap: 2rem);
+
+        div.text {
+            color: $color;
+
+            div.iconSocials a {
+                @include animation;
+                text-decoration: none;
+                color: $color;
+                transition: all 1s;
+
+                &:hover {
+                    color: $color-secondaire;
+                }
+
+                i {
+                    padding: 2rem;
+                }
+            }
+        }
+
+        div.video video {
+            @include animation;
+            max-width: 100%;
+            max-height: auto;
+            transition: $transition;
+        }
+    }
+
+}
+
+/*****************************************************************************************************************
+                                        style SCSS pour le footer
+*****************************************************************************************************************/
+
+
+footer.footer {
+    box-shadow: 0px 0px 15px 15px $color-primaire;
+    color: $color;
+    margin-top: 2rem;
+    padding: 1rem;
+
+    article.text-footer {
+        padding: 4rem;
+        text-align: center;
+
+        h2 {
+            @include fontFaces($fonts: "BodegaSans_Black", $font-weight: 900);
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        div.link-footer a {
+            @include fontFaces($fonts: "BodegaSans_Black", $font-weight: 900);
+            color: $color;
+            text-decoration: none;
+            padding: 2rem;
+            font-size: 1.5rem;
+
+            &:hover {
+                color: $color-secondaire;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    div.copyright-footer div.container {
+        @include container($max-width: 1500px);
+        text-align: center;
+
+        p a {
+            text-decoration: underline;
+            color: $color;
+
+            img {
+                width: 50px;
+            }
+        }
+    }
+}
+
+
+/*****************************************************************************************************************
+                style SCSS pour la media queries de la tablette avec pour point de rupture 980px à 780px
+*****************************************************************************************************************/
+
+@media screen and (min-width: 780px) and (max-width: 980px) {
+
+    body {
+        @include container($max-width: 800px);
+        padding-block: 2rem;
+    }
+
+    header.header {
+        div.container {
+            padding: 2rem;
+
+            nav ul.navbar {
+                padding: 0;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+main.main div.container {
+    article.FlexSlide h1 {
+        font-size: 2.5rem;
+    }
+
+    div.flexslider {
+        border: 0.2rem solid $color;
+    }
+}
+
+main.main article.cards div.container {
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    div.flex {
+        @include Flex($justify-content: center, $flexwrap: wrap, $gap: 2rem);
+
+        div.card {
+            margin-inline: auto;
+            flex-basis: 50%;
+        }
+    }
+}
+
+article.media div.container {
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    div.flexMedia {
+        @include Flex($justify-content: center,  $flexwrap: wrap, $gap: 2rem);
+
+        div.text {
+            color: $color;
+
+            div.iconSocials a {
+                @include Flex($justify-content: center, $flexdirection:column, $gap: 2rem, $align-items: center);
+                
+                &:hover {
+                    color: $color-secondaire;
+                }
+
+                i {
+                    font-size: 3rem;
+                    padding: 2rem;
+                }
+            }
+        }
+    }
+
+}
+
+article.text-footer {
+
+    div.link-footer a {
+        text-decoration: underline;
+
+        &:hover {
+            color: $color-secondaire;
+        }
+    }
+}
+
+
+/*****************************************************************************************************************
+                style SCSS pour la media queries du mobile avec pour point de rupture de 0 à 779px
+*****************************************************************************************************************/
+
+@media screen and (max-width: 779px) {
+
+    body {
+        @include container($max-width: 360px);
+        padding-block: 2rem;
+    }
+
+
+    header.header {
+        padding: 1rem;
+        margin: 0;
+   
+        div.container {
+            @include Flex( $gap: 0rem);
+            padding: 0;
+
+            a img{
+             width: 50%;
+            }
+
+            nav ul.navbar {
+                @include Flex($flexdirection:column, $align-items: flex-start, $gap:0.5rem );
+                margin: 0;
+                padding: 0;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    main.main div.container {
+        article.FlexSlide h1 {
+            font-size: 2rem;
+        }
+
+    }
+
+    main.main article.cards div.container {
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        div.flex {
+            @include Flex($justify-content: center, $flexdirection:column, $gap: 2rem);
+
+            div.card {
+                flex-basis: 50%;
+            }
+        }
+    }
+
+    article.media div.container {
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        div.flexMedia {
+            @include Flex($justify-content: center, $flexdirection:column, $gap: 2rem);
+
+            div.text {
+                color: $color;
+
+                div.iconSocials a {
+                    @include Flex($justify-content: center, $flexdirection:column, $gap: 2rem, $align-items: center);
+
+                    &:hover {
+                        color: $color-secondaire;
+                    }
+
+                    i {
+                        font-size: 3rem;
+                        padding: 2rem;
+                    }
+                }
+            }
+        }
+
+    }
+
+   footer.footer {
+
+    article.text-footer {
+
+        padding: 2rem;
+
+        div.link-footer a {
+            display: block;
+            padding: 0.5rem;
+            text-decoration: underline;
+
+            &:hover {
+                color: $color-secondaire;
+            }
+        }
+    }
+   }
+}
+

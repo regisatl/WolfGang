@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "sourceRoot": "",
+    "sources": [
+        "../sass/font.scss"
+    ],
+    "names": [],
+    "mappings": ";AAAA;AAAA;AAAA;AAWA;AAAA;AAAA;AAGA;EARI,aAS0B;EAR1B,YAJS;EAKT,aAO2D;EAC3D;;AAGJ;EAbI,aAcmB;EAbnB,YAJS;EAKT,aAY0C;EAC1C;;AAGJ;EAlBI,aAmBmB;EAlBnB,YAJS;EAKT,aAiB0C;EAC1C;;AAGJ;EAvBI,aAwBmB;EAvBnB,YAJS;EAKT,aAsB0C;EAC1C;;AAGJ;EA5BI,aA6BmB;EA5BnB,YAJS;EAKT,aA2B0C;EAC1C",
+    "file": "font.css"
+}
